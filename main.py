@@ -93,8 +93,15 @@ extractedPoint = np.random.randint(100000000, size=2)
 X1 = extractedPoint[0]
 Y1 = extractedPoint[1]
 
+
+fig = plt.figure(1, figsize=(18, 12))
 plt.scatter(x=Xscaled, y=Yscaled, cmap="red")
-plt.scatter(x=X1, y=Y1)
+plt.scatter(x=X1, y=Y1, marker="X")
+plt.xlim(0, 100001000) # 100001000 to have some little margin
+plt.ylim(0, 100001000)
+plt.xlabel('Coordinate X', fontsize=24)
+plt.ylabel('Coordinate Y', fontsize=24)
+plt.title("Traveling Salesman Problem Map",fontsize=32)
 plt.show()
 
 
@@ -107,7 +114,7 @@ optVal = solution.optimal_value
 
 calculatedOptimalPaths = []
 N_MAX_STEPS = 10000
-EPSILON = 1e-14
+EPSILON = 1e-7
 DIFFICULTY = np.round(1/EPSILON)
 N_SAMPLES_REQ = 2
 
